@@ -1,0 +1,679 @@
+.app{
+    display: flex;
+    justify-content: center;
+    background-color: #A7C6ED;
+    .container{
+        width: 1024px;
+        
+
+        .link{
+            text-decoration: none;
+            color: inherit;
+        }
+        //DELETE BUTTON
+        .trash-btn {
+            font-size: 13px; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            padding: 10px 15px; 
+            cursor: pointer; 
+            transition: background-color 0.3s ease, transform 0.2s ease; 
+            background-color: #f55151;
+        }
+        
+        .trash-btn:hover {
+            transform: scale(1.1); 
+        }
+        
+        .trash-btn:focus {
+            outline: none; 
+        }
+
+        //EDIT BUTTON
+        .edit-btn {
+            font-size: 13px; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            padding: 10px 15px; 
+            cursor: pointer; 
+            transition: background-color 0.3s ease, transform 0.2s ease; 
+            background-color: #ffa006;
+        }
+        
+        .edit-btn:hover {
+            transform: scale(1.1); 
+        }
+        
+        .edit-btn:focus {
+            outline: none; 
+        }
+
+        //NO VACATION CHART
+        .no-vacations-chart-message {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #d9534f; 
+            text-align: center;
+            padding: 20px;
+            background-color: #f8d7da; 
+            border: 1px solid #d9534f; 
+            border-radius: 8px;
+            margin-top: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+          }
+          
+          .no-vacations-chart-message span {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #721c24;
+          }
+
+
+        .no-vacation-data {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; 
+            background-color: #ffe6e6; 
+            color: #b30000; 
+            font-size: 2rem; 
+            font-weight: bold; 
+            text-align: center; 
+            border-radius: 10px; 
+            padding: 1rem; 
+          }
+
+
+
+        
+        .back-button-container{
+            background: linear-gradient(20deg, #6ce9d2, #86c2dc)
+        }
+        .back-to-vacations-btn{
+            background-color: #e70101; 
+            color: white;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .back-to-vacations-btn:hover {
+            transform: scale(1.08); 
+          }
+          
+          .back-to-vacations-btn:focus {
+            outline: none; 
+          }
+
+          //ADD VACATION BUTTON
+        .add-vacation-btn {
+            background-color: #28a745; 
+            color: white;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+          }
+          
+          .add-vacation-btn:hover {
+            transform: scale(1.08); 
+          }
+          
+          .add-vacation-btn:focus {
+            outline: none; 
+          }
+
+          //GO TO CHART BUTTON
+          .chart-vacation-btn{
+            background-color: blue; 
+            color: white;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+          }
+
+          .chart-vacation-btn:hover {
+            transform: scale(1.08); 
+          }
+          
+          .chart-vacation-btn:focus {
+            outline: none; 
+          }
+
+
+
+      .add-vacation-div{
+        padding-bottom: 15px;
+      }    
+
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+      
+      .modal-content {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        text-align: center;
+      }
+      
+      button {
+        padding: 10px 20px;
+        margin: 10px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+      }
+      
+      .open-modal-btn {
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: white;
+        font-size: 16px;
+      }
+      
+      .confirm-btn {
+        background-color: #e74c3c;
+        color: white;
+      }
+      
+      .cancel-btn {
+        background-color: #f1f1f1;
+        color: black;
+      }
+      
+      .modal-actions button {
+        width: 100px;
+      }
+
+
+.vacationsPage {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // justify-content: center;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+  
+      
+
+
+    .filters {
+        display: flex;
+        gap: 15px; 
+        margin-bottom: 20px; 
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        align-items: center;
+      }
+
+      .filters label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #333;
+  gap: 5px; 
+  cursor: pointer;
+}
+
+.filters input[type="checkbox"] {
+  accent-color: #ff5722;
+  transform: scale(1.2); 
+  cursor: pointer;
+}
+
+.no-vacations-message {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #d9534f; 
+    text-align: center;
+    padding: 20px;
+    background-color: #f8d7da; 
+    border: 1px solid #d9534f; 
+    border-radius: 8px;
+    margin-top: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .no-vacations-message span {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #721c24;
+  }
+  
+
+.loader {
+    width: 175px;
+    height: 80px;
+    display: block;
+    margin: auto;
+    background-image: radial-gradient(circle 25px at 25px 25px, #FFF 100%, transparent 0), radial-gradient(circle 50px at 50px 50px, #FFF 100%, transparent 0), radial-gradient(circle 25px at 25px 25px, #FFF 100%, transparent 0), linear-gradient(#FFF 50px, transparent 0);
+    background-size: 50px 50px, 100px 76px, 50px 50px, 120px 40px;
+    background-position: 0px 30px, 37px 0px, 122px 30px, 25px 40px;
+    background-repeat: no-repeat;
+    position: relative;
+    box-sizing: border-box;
+  }
+  .loader::after {
+    content: '';  
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 20px;
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 5px solid transparent;
+    border-color: #FF3D00 transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+  
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  } 
+
+    
+    .vacations {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      max-width: 1200px;
+      justify-content: center;
+  
+      .vacation {
+        background: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+        width: 280px;
+  
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+  
+        .img {
+          img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+          }
+        }
+  
+        .content {
+          padding: 15px;
+  
+          h1 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 5px;
+          }
+  
+          h2 {
+            font-size: 16px;
+            color: #777;
+            margin-bottom: 10px;
+          }
+  
+          p {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 10px;
+          }
+  
+          h3 {
+            font-size: 18px;
+            color: #052330;
+            margin-bottom: 10px;
+          }
+  
+
+          .heart-button {
+            background-color: transparent;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            outline: none;
+            transition: transform 0.2s ease, color 0.2s ease;
+            color: #ccc; 
+          }
+          
+          .heart-button:hover {
+            transform: scale(1.2);
+          }
+          
+          .heart-button.liked {
+            color: #e74c3c; 
+          }
+          
+          .heart-button.liked:hover {
+            transform: scale(1.3);
+          }
+          
+
+        //   button {
+        //     background: #052330;
+        //     color: #ffffff;
+        //     font-size: 14px;
+        //     padding: 10px 20px;
+        //     border: none;
+        //     border-radius: 5px;
+        //     cursor: pointer;
+        //     transition: background 0.3s;
+  
+        //     &:hover {
+        //       background: #e64a19;
+        //     }
+        //   }
+          .dislike{
+            background: #052330;
+            color: #ffffff;
+            font-size: 14px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+  
+            &:hover {
+              background: #e64a19;
+            }
+          }
+          .followers {
+            
+            
+            color: #555;
+            background: #ffffff;
+            padding: 10px 15px;
+            font:icon;
+            
+          }
+
+          
+
+        }
+      }
+    }
+  }
+
+
+  //ADD VACATION PAGE
+
+  .add-vacation{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #74ebd5, #9face6);
+  font-family: 'Arial', sans-serif;
+
+  form {
+    background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 350px;
+  width: 100%;
+  text-align: center;
+  }
+  h1{
+    font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  }
+  input{
+    width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  }
+  textarea{
+    width: 100%;
+    padding: 0.7rem;
+    margin-bottom: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    resize: none; 
+    height: 5rem; 
+    line-height: 1.5; 
+    overflow-y: auto;
+  }
+  textarea:focus{
+    border-color: #000000;
+  outline: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  button{
+    width: 100%;
+  padding: 0.7rem;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  }
+  button:hover{
+    background-color: #0056b3;
+  }
+  p{
+    text-align: center;
+                    font-size: 17px;    
+                    color: red;
+  }
+
+
+  }
+
+//EDIT VACATION PAGE 
+
+
+    .edit-vacation{
+        display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #74ebd5, #9face6);
+      font-family: 'Arial', sans-serif;
+    
+      form {
+        background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-width: 350px;
+      width: 100%;
+      text-align: center;
+      }
+      h1{
+        font-size: 1.8rem;
+      color: #333;
+      margin-bottom: 1.5rem;
+      }
+      input{
+        width: 100%;
+      padding: 0.7rem;
+      margin-bottom: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 0.95rem;
+      }
+      textarea{
+        width: 100%;
+        padding: 0.7rem;
+        margin-bottom: 0.8rem;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        font-size: 0.95rem;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        resize: none; /* Prevent resizing for a cleaner UI */
+        height: 5rem; /* Adjust height for multi-line text */
+        line-height: 1.5; /* Ensure better readability */
+        overflow-y: auto;
+      }
+      textarea:focus{
+        border-color: #000000;
+      outline: none;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      button{
+        width: 100%;
+      padding: 0.7rem;
+      font-size: 1rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      }
+      button:hover{
+        background-color: #0056b3;
+      }
+      p{
+        text-align: center;
+                        font-size: 17px;    
+                        color: red;
+      }
+    .preview-vacation-image{
+        max-width: 100%;
+        height: auto;
+        margin-top: 5px;
+    }
+    
+      }
+
+
+        
+        .authentication{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #1fa6e0;
+            height: 100vh;
+            flex-direction: column;
+
+            h1{
+                font-size: 20px;
+                color: #052330;
+                margin-bottom: 20px;
+            }
+
+            form{
+                display: flex;
+                flex-direction: column;
+                padding: 50px;
+                background-color: white;
+                width: 200px;
+                gap: 20px;
+
+                input{
+                    padding: 10px;
+                    border: none;
+                    border-bottom: 1px solid gray;
+                }
+
+                button{
+                    padding: 10px;
+                    border: none;
+                    background-color: #052330;
+                    cursor: pointer;
+                    color: white;
+                }
+                p{
+                    text-align: center;
+                    font-size: 11px;    
+                    color: red;
+                }
+                span{
+                    text-align: center;
+                    font-size: 11px;
+                }
+            }
+
+        }
+
+        .navbar{
+            .container{
+                padding: 10px 0px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .logo{
+                    img{
+                        width: 80px;
+                        border-radius: 50%;
+                    }
+
+                }
+                .links{
+                    display: flex;
+                    gap: 10px;
+                    align-items: center;
+
+                    .logout{
+                        cursor: pointer;
+                        background-color:#528294;
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-weight: 500;
+                        border: 1px solid #528294;
+
+                    &:hover{
+                        color:#528294 ;
+                        background-color: white;
+                        border: 1px solid #528294;
+                    }
+                    }
+
+                    
+                }
+            }
+        }
+    }
+}
